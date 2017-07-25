@@ -1,0 +1,9 @@
+
+mirror:github:
+    stage: deploy
+    image: ubuntu:latest
+    script:
+	- "sudo apt-get install git bash"
+	- "git clone https://code.ini.uzh.ch/orichter/ci-mirror-tools.git deploy_github"
+	- "cd deploy_github"
+	- "bash mirror.sh"
