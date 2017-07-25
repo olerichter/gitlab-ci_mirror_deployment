@@ -1,4 +1,12 @@
-# mirror git repo via deployment
+# mirror git repo via deployment for gitlab-CI
+
+[![build status](https://code.ini.uzh.ch/orichter/ci-mirror-tools/badges/master/build.svg)](https://code.ini.uzh.ch/orichter/ci-mirror-tools/commits/master)
+
+This script is made for easy mirroring of git repositories from Gitlab to any other git service
+
+The mirror has to be read only!
+
+## usage:
 
 to use the git mirroring just add to your .gitlab-ci.yml
 ```
@@ -23,5 +31,6 @@ If you are using GIT LFS add a second variable
 ```
 
 ## Be aware:
-the deployment is only excecuted when building works, so when you have build or test jobs and you want the deployment to run add `when: always` to the mirror: job
+the deployment is only excecuted when building works, so when you have build or test jobs and you want the deployment to run even on failure:  add `when: always` to the `mirror: job`
+
 the mirror script will **overwrite all changes** made to the mirror so make it **read-only**!
